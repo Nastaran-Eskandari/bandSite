@@ -1,0 +1,612 @@
+/*********@mixins**********/
+@mixin border-btn-radius($radius) {
+    -webkit-border-radius: $radius;
+    border-radius: $radius;
+     -webkit-border-radius: $radius;
+     border-radius: $radius;
+    
+  }
+@mixin section() {
+    min-height: 100vh; 
+    padding: 2.0em 5em;
+   
+}
+@mixin ancor() {
+    
+    text-decoration: none;
+    color:$white-color;
+}
+@mixin social-icon(){
+    width: 18px;
+    height: 20px;
+    margin-right: 40px;
+    padding: 5px;;
+}
+@mixin btn() {
+    width: 198px;
+    height: 55px;
+    color: #fff;
+    @include border-btn-radius(5px);
+}
+@mixin comments-date() {
+    color: #D7D7D7;
+    font-size: 12px;
+    margin-left: 15px;
+    
+}
+
+/*********variables**********/
+$font-stack:'Poppins', sans-serif;
+$white-color:#fff;
+$show-bg:#272727;
+$margin-none:0;
+$font-headings:64px;
+$font-para1:24px;
+$font-para2:20px;
+$font-links:18px;
+$font-date:84px;
+$font-heading3:36px;
+$font-bold:bold;
+
+
+
+
+ /*responsive variables*/
+
+$rsp-padding:1em 1.5em;
+$rsp-font-heading:36px;
+$rsp-font-para:18px;
+$rsp-font-footer:12px;
+$rsp-text-align:justify;
+$rsp-text-center:center;
+
+/*********extends**********/
+.section {
+    min-height: 100vh; 
+    padding-top: 2em 5em;
+}
+
+  
+  
+
+/**********************************************************************************************************/ 
+body{
+    font-family: $font-stack;
+     margin: $margin-none;
+}
+
+/*********header styles**********/
+.header{
+    @include section();
+    padding-top: 0;
+    background-size: cover;
+    background-image: url("../Images/ana-grave-156852-unsplash.jpg");
+
+&__links{
+    display: flex;
+    justify-content: flex-end;
+    flex-direction: row;
+    align-items: center;
+}
+
+&__link{
+    padding: 1.5em;
+    font-size: $font-links;
+   @include ancor();
+    color:$white-color;
+    font-weight: bold;
+}
+
+&__link--left{
+    margin-right: auto;
+
+}
+&__link--right{
+    color: #D7D7D7;
+}
+&__contant{
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+    position: relative;
+    top:9em;
+    
+}
+&__button{
+    @include btn();
+   
+    background-color: rgba(#D7D7D7, .5);
+    border:1px solid $white-color;
+    margin-top: 10px;
+    transition: all 0.5s;
+   
+}
+&__button span {
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    transition: 0.5s;
+    font-size: $font-links;
+  }
+  
+  &__button span:after {
+    content: '\00bb';
+    position: absolute;
+    opacity: 0;
+    top: 0;
+    right: -20px;
+    transition: 0.5s;
+  }
+  
+  &__button:hover span {
+    padding-right: 25px;
+  }
+  
+  &__button:hover span:after {
+    opacity: 1;
+    right: 0;
+  }
+  #header__date{
+    color:$white-color;
+    font-size: $font-date;
+    margin: 0 auto;
+    
+    
+}
+ h3{
+    color:$white-color;
+    font-size: $font-heading3;
+    font-weight: normal;
+}
+
+
+}
+/*********about styles**********/
+.about{
+    @include section();
+
+
+&__heading{
+        font-size: $font-headings;
+     }
+
+&__content{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: stretch;
+
+
+    &--left{
+        font-size:$font-para1;
+        font-weight: bold;
+        margin-right: 30px;
+         }
+
+    &--right{
+    
+         font-size: $font-para2;
+    }
+}
+
+}
+
+/*********music styles**********/
+.music{
+    @include section();
+    background:#F9F9F9;
+    
+&__heading{
+        font-size: $font-headings;
+     }
+     
+&__span{
+    font-weight: bold;
+}
+&__container{
+    display: flex;
+    justify-content: flex-start;
+
+    &--left {
+        -width: 326px;
+        -height: 326px; 
+        -overflow: hidden;
+        margin-right: 35px;
+         
+    }
+    
+    &--para {
+        margin-top: $margin-none;
+        font-size: $font-para1;
+    }
+
+    &--photo{
+        width: 100%;
+        height: 100%;;
+     
+    }
+
+    &--right{
+        display: flex;
+        font-size: $font-para2;
+        margin-top: $margin-none;
+        width: 60%;
+        flex-direction: column;
+    }
+}
+
+}
+/*********gallery styles**********/
+.gallery{
+    @include section();
+
+&__heading{
+        font-size: $font-headings;
+        // margin-left: 1em;
+       
+    }
+
+&__container{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+
+}
+
+.album{
+    width: 285px;
+    height: 285px;
+    margin: 2px;
+    position: relative;	
+
+    
+
+    &  img{
+	width: 100%;
+    height: 100%;
+    // width: 285px;
+    // height: 285px;
+   object-fit: cover;
+    }
+
+
+  
+    &  .overlay {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        height: 100%;
+        width: 100%;
+        opacity: 0;
+        transition: .5s ease;
+        background-color: rgb(11, 49, 61);
+    }
+  
+  &:hover .overlay{
+    opacity: 0.7;
+  }
+
+}
+
+}
+/************comments style*********************/
+.comments{
+    @include section();
+    background:#F9F9F9;
+
+    &__heading{
+        font-size: $font-headings;
+        
+     }
+     &__btn{
+        @include btn();
+        background-color: $show-bg;
+       
+    }
+    .like-btn{
+        width: 25px;
+        height: 25px;
+    }
+    .like-number{
+        font-size: 9px;
+        margin:0 10px;
+        color:gray;
+        vertical-align: super;
+    }
+    .delete-btn{
+        width: 18px;
+        height: 18px;
+        margin-left: 30px;
+    }
+     input[type=text], textarea {
+        width: 100%;
+        padding: 12px;
+        margin: 8px 0;
+        display: inline-block;
+        border: 1px solid #ccc;
+        box-sizing: border-box;
+        @include border-btn-radius(3px);
+    }
+  
+}
+#comment__form{
+  
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    width: 55%;
+
+    & label{
+        font-size: $font-para2;
+        font-weight: $font-bold;
+    }
+     #name,#comment{
+         margin-bottom: 2.4em;
+     }
+   
+    p{
+        font-size: 12px;
+    }
+
+}
+ .comment__date{
+    @include comments-date();
+}
+ #comments_box{
+    -margin: 3em auto;
+}
+
+.span-date{
+    color: gray;
+    font-size: 12px;
+    margin-left: 10px;
+    font-weight: normal;
+}
+.div-comment{
+    border-top: 1px solid #d7d7d7;
+    margin: 1.5em auto;
+}
+.div-comment:last-child{
+    border-bottom: 1px solid #d7d7d7;
+}
+.author{
+    font-weight: $font-bold;
+    font-size: 14px;
+}
+/*********footer styles**********/
+.footer{
+    @include section();
+    background: #272727;
+    color: $white-color;
+   
+&__wrapper{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    margin: 2em auto;
+}
+&__heading{
+    font-size: $font-headings;
+    
+ 
+ }
+ a{
+    @include ancor();
+}
+&--right,&--mid,&--left{
+    line-height: 8px;
+    font-weight: normal;
+    font-size: $font-links;
+}
+&__social{
+    display: flex;
+    justify-content: flex-start;
+& .facebook , .instagram , .twitter {
+    @include social-icon();
+    @include border-btn-radius(8px);
+}    
+& .facebook:hover{
+    background: rgb(59, 89, 152);
+}
+& .instagram:hover{
+   background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
+}
+& .twitter:hover{
+    background: rgb(24, 163, 209);
+    }
+
+}
+
+&__copyright{
+    margin-top: 15em;
+    font-size: 10px;
+}
+
+}
+
+/************comming-soon*****************/
+.comming-soon{
+    background: url("../Images/hanny-naibaho-388579-unsplash.jpg");
+    background-size: cover;
+
+    & h1{
+        color: $white-color;
+    }
+    input[type=text], input[type=submit] {
+        width: 100%;
+        padding: 12px;
+        margin: 8px 0;
+        display: inline-block;
+        border: 1px solid #ccc;
+        box-sizing: border-box;
+        @include border-btn-radius(5px);
+    }
+}
+
+
+/*************** header media queris***************/
+
+/* On screens that are 992px or less*/
+@media screen and (max-width: 992px) {
+.header{
+    padding: $rsp-padding;
+
+    &__links{
+        flex-direction: column;
+       
+    }
+    &__link{
+        font-size: $rsp-font-para;
+        
+        &--left{
+            margin: initial;
+        }
+    }
+    
+
+    & #header__date{
+        font-size: $rsp-font-heading;
+    }
+    &__contant{
+        position: static;
+
+        p{
+            font-size: $rsp-font-para;
+        }
+    }
+    &__button{
+        width: 160px;
+    }
+}
+/*****about media qureis*********/
+    .about{
+        padding: $rsp-padding;
+    
+    &__content{
+        flex-direction: column;
+        align-items: center;
+
+        &--left{
+            font-size: 20px;
+            text-align: $rsp-text-align;
+            margin: $margin-none;
+        }
+        &--right{
+            font-size: $rsp-font-para;
+            text-align: $rsp-text-align;
+        }
+       
+    }
+    &__heading{
+        font-size: $rsp-font-heading;
+        text-align: $rsp-text-center;
+    }
+}
+
+/*****music media qureis*********/
+    .music{
+        padding: $rsp-padding;
+
+
+    &__heading{
+        font-size: $rsp-font-heading;
+        text-align: $rsp-text-center;
+    }
+    &__container{
+        flex-direction: column;
+        align-items: center;
+       
+
+        &--right{
+            margin-top: 30px;
+            width: 100%;
+            font-size: $rsp-font-para;
+            text-align: $rsp-text-align;
+            
+        }
+
+        &--left{
+            margin: 0  auto;
+            text-align: center;
+        }
+    }
+    iframe{
+        width: 300px!important;
+    }
+  }
+  /*****gallery media qureis*********/
+  .gallery{
+    padding: $rsp-padding;
+
+    &__heading{
+        font-size: $rsp-font-heading;
+        text-align: $rsp-text-center;
+    }
+  }
+  /*****comment media qureis*********/
+  .comments{
+    padding: $rsp-padding;
+    text-align: $rsp-text-center;
+  
+
+
+    &__heading{
+        font-size: $rsp-font-heading;
+       
+    }
+    
+   & p{
+       line-height: 25px;
+       font-size: $rsp-font-footer;
+   } 
+
+   &__btn{
+    width: 160px;
+    margin: 0 auto;
+}
+   #comment__form{
+       width: 90%;
+       margin: 0 auto;
+   }
+ 
+.div-comment{
+    text-align: left;
+}
+}
+    /*****footer media qureis*********/
+    .footer{
+        padding: $rsp-padding;
+        text-align: $rsp-text-center;
+
+        &__heading{
+            font-size: $rsp-font-heading;
+           
+        }
+       & p{
+           line-height: 25px;
+           font-size: $rsp-font-footer;
+       } 
+       & h4{
+            font-size: $rsp-font-footer;
+       }
+       &__wrapper{
+        flex-direction: column;
+    }
+    &__social{
+        justify-content: center;
+        
+        i{
+            margin: 15px;
+        }
+    }
+    &__copyright{
+        margin-top: 4em;
+    }
+    }
+    
+} 

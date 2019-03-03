@@ -1,0 +1,335 @@
+/*********@mixins**********/
+@mixin border-btn-radius($radius) {
+    -webkit-border-radius: $radius;
+    border-radius: $radius;
+     -webkit-border-radius: $radius;
+     border-radius: $radius;
+    
+  }
+@mixin section() {
+    min-height: 100vh; 
+    padding: 2.0em 5em;
+   
+}
+@mixin ancor() {
+    
+    text-decoration: none;
+    color:$white-color;
+}
+@mixin social-icon(){
+    width: 18px;
+    height: 20px;
+    margin-right: 40px;
+    padding: 5px;;
+}
+
+/*********variables**********/
+$font-stack:'Poppins', sans-serif;
+$white-color:#fff;
+$show-bg:#272727;
+$margin-none:0;
+$font-headings:64px;
+$font-para1:24px;
+$font-para2:20px;
+$font-links:18px;
+$font-date:84px;
+$font-heading3:36px;
+
+
+ /*responsive variables*/
+
+$rsp-padding:1em 1.5em;
+$rsp-font-heading:36px;
+$rsp-font-para:18px;
+$rsp-font-footer:12px;
+$rsp-text-align:justify;
+$rsp-text-center:center;
+
+/*********extends**********/
+.section {
+    min-height: 100vh; 
+    padding-top: 2em 5em;
+}
+
+
+/**********************body styles********************************************/ 
+body{
+    font-family: $font-stack;
+     margin: $margin-none;
+
+}
+  
+/*********header styles**********/
+.header__show{
+    background: url(../Images/hanny-naibaho-388579-unsplash.png);
+    background-size: cover;
+    
+}
+.header__overlay {
+    
+    height: 100%;
+    width: 100%;
+    background-color: rgba(29, 30, 31,0.8);
+    
+}
+.header{
+    padding: 2.0em 5em;
+    padding-top: 0;
+
+&__links{
+    display: flex;
+    justify-content: flex-end;
+    flex-direction: row;
+    align-items: center;
+}
+
+&__link{
+    padding: 1.5em;
+    font-size: $font-links;
+   @include ancor();
+    color:$white-color;
+    font-weight: bold;
+}
+
+&__link--left{
+    margin-right: auto;
+
+}
+&__link--mid{
+    color: #D7D7D7;
+}
+
+}
+/************show-soon*****************/
+.show{
+    padding:0  6em 2.0em 6em;
+
+    &__heading{
+        font-size: $font-headings;
+        color: $white-color;
+        
+     }
+    &__button{
+        width: 198px;
+        height: 55px;
+        @include border-btn-radius(5px);
+        background-color: rgba(#D7D7D7, .5);
+        color: $white-color;
+        border:1px solid $white-color;
+        margin-top: 10px;
+        transition: all 0.5s;
+       
+    }
+    &__button span {
+        cursor: pointer;
+        display: inline-block;
+        position: relative;
+        transition: 0.5s;
+        font-size: $font-links;
+      }
+      
+      &__button span:after {
+        content: '\00bb';
+        position: absolute;
+        opacity: 0;
+        top: 0;
+        right: -20px;
+        transition: 0.5s;
+      }
+      
+      &__button:hover span {
+        padding-right: 25px;
+      }
+      
+      &__button:hover span:after {
+        opacity: 1;
+        right: 0;
+      }
+  
+
+     h3{
+        color:$white-color;
+        font-size: $font-heading3;
+        font-weight: normal;
+    }
+    
+
+.show__table{
+    border-collapse: collapse;
+    width: 100%;
+    // margin: 0 auto 3.3em auto;
+
+    overflow: hidden;
+
+
+    
+    & tr{
+        border-bottom: 1px solid #D7D7D7;
+        color: $white-color;
+    
+        
+    }
+    & td{
+        width: 40%;
+        padding: 5px;
+
+        .table__date{
+            font-weight: bold;
+        }
+        .table__locatin{
+            margin-top:0;
+        }
+
+    }
+  
+}
+
+
+}
+// tr:last-child{
+//     border-bottom:none!important;
+//  }
+
+/*********footer styles**********/
+.footer{
+    @include section();
+    background: #272727;
+    color: $white-color;
+   
+&__wrapper{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    margin: 2em auto;
+}
+&__heading{
+    font-size: $font-headings;
+    
+ 
+ }
+ a{
+    @include ancor();
+}
+&--right,&--mid,&--left{
+    line-height: 8px;
+    font-weight: normal;
+    font-size: $font-links;
+}
+&__social{
+    display: flex;
+    justify-content: flex-start;
+& .facebook , .instagram , .twitter {
+    @include social-icon();
+    @include border-btn-radius(8px);
+}    
+& .facebook:hover{
+    background: rgb(59, 89, 152);
+}
+& .instagram:hover{
+   background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
+}
+& .twitter:hover{
+    background: rgb(24, 163, 209);
+    }
+
+}
+
+&__copyright{
+    margin-top: 15em;
+    font-size: 10px;
+}
+
+}
+
+
+
+
+
+/***************media queris***************/
+/* On screens that are 992px or less*/
+@media screen and (max-width: 992px) {
+.header{
+    padding: $rsp-padding;
+
+    &__links{
+        flex-direction: column;
+       
+    }
+    &__link{
+        font-size: $rsp-font-para;
+        
+        &--left{
+            margin: initial;
+        }
+    }
+    
+    &__contant{
+        position: static;
+
+        p{
+            font-size: $rsp-font-para;
+        }
+    }
+  
+}
+
+  /*****show media qureis*********/
+  .show{
+    padding: 0;
+    text-align: $rsp-text-center;
+
+    &__heading{
+        font-size: $rsp-font-heading;
+       
+    }
+    &__table{
+        overflow-x:auto;
+    
+
+    }
+    &__button{
+        width: 80px;
+
+        span{
+            font-size: 12px;
+        }
+    }
+    
+    p{
+        font-size: 12px;
+    }
+  }
+
+    /*****footer media qureis*********/
+    .footer{
+        padding: $rsp-padding;
+        text-align: $rsp-text-center;
+
+        &__heading{
+            font-size: $rsp-font-heading;
+           
+        }
+       & p{
+           line-height: 25px;
+           font-size: $rsp-font-footer;
+       } 
+       & h4{
+            font-size: $rsp-font-footer;
+       }
+       &__wrapper{
+        flex-direction: column;
+    }
+    &__social{
+        justify-content: center;
+        
+        i{
+            margin: 15px;
+        }
+    }
+    &__copyright{
+        margin-top: 4em;
+    }
+    }
+    
+} 
